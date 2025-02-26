@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import com.social.Social.Repository.PostRepository;
 import com.social.Social.Repository.UserRepository;
@@ -31,7 +30,7 @@ public class PostServiceImplementation implements PostService {
         newPost.setImage(post.getImage());
         newPost.setVideo(post.getVideo());
         newPost.setUser(user);
-        return postRepository.save(newPost);
+        return newPost;
     }
 
     @Override

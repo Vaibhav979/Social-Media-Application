@@ -55,16 +55,8 @@ public class PostController {
     }
 
     @GetMapping("/post/{postId}/user/{userId}")
-    public ResponseEntity<Post> savePostHandler(@PathVariable Integer postId, @PathVariable Integer userId)
-            throws Exception {
-        Post post = postService.savedPost(postId, userId);
-        return new ResponseEntity(post, HttpStatus.ACCEPTED);
-    }
-
-    @GetMapping("/post/{postId}")
-    public ResponseEntity<Post> likePostHandler(@PathVariable Integer postId, @PathVariable Integer userId)
-            throws Exception {
-        Post post = postService.likePost(postId, userId);
+    public ResponseEntity<Post> findPostByIdHandler(@PathVariable Integer postId) throws Exception {
+        Post post = postService.findPostById(postId);
         return new ResponseEntity(post, HttpStatus.ACCEPTED);
     }
 }

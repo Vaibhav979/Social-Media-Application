@@ -42,29 +42,11 @@ public class PostController {
         return new ResponseEntity<List<Post>>(posts, HttpStatus.OK);
     }
 
-    @GetMapping("/posts")
-    public ResponseEntity<List<Post>> findAllPosts(@PathVariable Integer userId) {
-        List<Post> posts = postService.findAllPost();
-        return new ResponseEntity<List<Post>>(posts, HttpStatus.OK);
-    }
+    
 
     @GetMapping("/post/{postId}")
     public ResponseEntity<Post> findPostByIdHandler(@PathVariable Integer postId) throws Exception {
         Post post = postService.findPostById(postId);
-        return new ResponseEntity(post, HttpStatus.ACCEPTED);
-    }
-
-    @GetMapping("/post/{postId}/user/{userId}")
-    public ResponseEntity<Post> savePostHandler(@PathVariable Integer postId, @PathVariable Integer userId)
-            throws Exception {
-        Post post = postService.savedPost(postId, userId);
-        return new ResponseEntity(post, HttpStatus.ACCEPTED);
-    }
-
-    @GetMapping("/post/{postId}")
-    public ResponseEntity<Post> likePostHandler(@PathVariable Integer postId, @PathVariable Integer userId)
-            throws Exception {
-        Post post = postService.likePost(postId, userId);
         return new ResponseEntity(post, HttpStatus.ACCEPTED);
     }
 }

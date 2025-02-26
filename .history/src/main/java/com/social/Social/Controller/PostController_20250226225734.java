@@ -1,7 +1,5 @@
 package com.social.Social.Controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.social.Social.Response.ApiResponse;
 import com.social.Social.Service.PostService;
 import com.social.Social.models.Post;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 public class PostController {
@@ -29,42 +26,15 @@ public class PostController {
     }
 
     @DeleteMapping("/post/{postId}/user/{userId}")
-    public ResponseEntity<ApiResponse> deletePost(@PathVariable Integer userId, @PathVariable Integer postId)
-            throws Exception {
+    public ResponseEntity<ApiResponse> deletePost(@PathVariable Integer userId, @PathVariable Integer postId) throws Exception {
         String message = postService.deletePost(postId, userId);
         ApiResponse res = new ApiResponse(message, true);
         return new ResponseEntity<>(res, HttpStatus.OK);
     }
 
-    @GetMapping("/post/user/{userId}")
-    public ResponseEntity<List<Post>> findUsersPost(@PathVariable Integer userId) {
-        List<Post> posts = postService.findPostByUserId(userId);
-        return new ResponseEntity<List<Post>>(posts, HttpStatus.OK);
-    }
-
-    @GetMapping("/posts")
-    public ResponseEntity<List<Post>> findAllPosts(@PathVariable Integer userId) {
-        List<Post> posts = postService.findAllPost();
-        return new ResponseEntity<List<Post>>(posts, HttpStatus.OK);
-    }
-
     @GetMapping("/post/{postId}")
-    public ResponseEntity<Post> findPostByIdHandler(@PathVariable Integer postId) throws Exception {
+    public ResponseEntity<Post> findPostByIdHandler(@PathVariable Integer postId) throws Exception{
         Post post = postService.findPostById(postId);
-        return new ResponseEntity(post, HttpStatus.ACCEPTED);
-    }
-
-    @GetMapping("/post/{postId}/user/{userId}")
-    public ResponseEntity<Post> savePostHandler(@PathVariable Integer postId, @PathVariable Integer userId)
-            throws Exception {
-        Post post = postService.savedPost(postId, userId);
-        return new ResponseEntity(post, HttpStatus.ACCEPTED);
-    }
-
-    @GetMapping("/post/{postId}")
-    public ResponseEntity<Post> likePostHandler(@PathVariable Integer postId, @PathVariable Integer userId)
-            throws Exception {
-        Post post = postService.likePost(postId, userId);
         return new ResponseEntity(post, HttpStatus.ACCEPTED);
     }
 }

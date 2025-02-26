@@ -31,7 +31,7 @@ public class PostServiceImplementation implements PostService {
         newPost.setImage(post.getImage());
         newPost.setVideo(post.getVideo());
         newPost.setUser(user);
-        return postRepository.save(newPost);
+        return postRepository.aavenewPost;
     }
 
     @Override

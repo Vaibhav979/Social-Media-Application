@@ -1,0 +1,6 @@
+package com.social.Social.Response;
+
+public class ApiResponse {
+    private String message;
+    privaet 
+}

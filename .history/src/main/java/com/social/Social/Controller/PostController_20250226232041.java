@@ -62,9 +62,8 @@ public class PostController {
     }
 
     @GetMapping("/post/{postId}")
-    public ResponseEntity<Post> likePostHandler(@PathVariable Integer postId, @PathVariable Integer userId)
-            throws Exception {
-        Post post = postService.likePost(postId, userId);
+    public ResponseEntity<Post> likePostHandler(@PathVariable Integer postId) throws Exception {
+        Post post = postService.likePost(postId, user);
         return new ResponseEntity(post, HttpStatus.ACCEPTED);
     }
 }
