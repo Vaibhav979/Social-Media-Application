@@ -14,6 +14,7 @@ import jakarta.persistence.Table;
 public class User {
 
     @Id
+     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String firstName;
@@ -21,17 +22,8 @@ public class User {
     private String email;
     private String password;
     private String gender;
-    public List<Post> getSavedPost() {
-        return savedPost;
-    }
-
-    public void setSavedPost(List<Post> savedPost) {
-        this.savedPost = savedPost;
-    }
-
     private List<Integer> followers = new ArrayList<>();
     private List<Integer> followings = new ArrayList<>();
-    private List<Post> savedPost = new ArrayList<>(); 
 
     public User() {
 

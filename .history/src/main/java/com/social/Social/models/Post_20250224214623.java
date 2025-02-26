@@ -1,5 +1,6 @@
 package com.social.Social.models;
 
-public class Posts {
+@Entit
+public class Post {
     
 }
