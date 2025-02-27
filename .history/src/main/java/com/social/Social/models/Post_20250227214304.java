@@ -8,8 +8,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 
 @Entity
 public class Post {
@@ -23,13 +21,9 @@ public class Post {
 
     private String video; // url
 
-    @ManyToOne
     private User user;
 
-    @OneToMany
     private List<User> liked = new ArrayList<>();
-
-    private LocalDateTime createdAt;
 
     public Post() {
     }
@@ -100,4 +94,6 @@ public class Post {
     public void setCreadtedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
+
+    
 }

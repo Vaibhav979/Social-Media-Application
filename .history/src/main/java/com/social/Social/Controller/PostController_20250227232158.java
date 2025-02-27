@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -36,7 +35,7 @@ public class PostController {
         return new ResponseEntity<>(res, HttpStatus.OK);
     }
 
-    @GetMapping("/posts/user/{userId}")
+    @GetMapping("/post/user/{userId}")
     public ResponseEntity<List<Post>> findUsersPost(@PathVariable Integer userId) {
         List<Post> posts = postService.findPostByUserId(userId);
         return new ResponseEntity<List<Post>>(posts, HttpStatus.OK);
@@ -54,14 +53,14 @@ public class PostController {
         return new ResponseEntity(post, HttpStatus.ACCEPTED);
     }
 
-    @PutMapping("/posts/save/{postId}/user/{userId}")
+    @GetMapping("/post/{postId}/user/{userId}")
     public ResponseEntity<Post> savePostHandler(@PathVariable Integer postId, @PathVariable Integer userId)
             throws Exception {
         Post post = postService.savedPost(postId, userId);
         return new ResponseEntity(post, HttpStatus.ACCEPTED);
     }
 
-    @PutMapping("/posts/like/{postId}/user/{userId}")
+    @PutMapping("/post/like/{postId}")
     public ResponseEntity<Post> likePostHandler(@PathVariable Integer postId, @PathVariable Integer userId)
             throws Exception {
         Post post = postService.likePost(postId, userId);

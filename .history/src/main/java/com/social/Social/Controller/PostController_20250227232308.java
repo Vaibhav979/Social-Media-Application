@@ -36,7 +36,7 @@ public class PostController {
         return new ResponseEntity<>(res, HttpStatus.OK);
     }
 
-    @GetMapping("/posts/user/{userId}")
+    @GetMapping("/post/user/{userId}")
     public ResponseEntity<List<Post>> findUsersPost(@PathVariable Integer userId) {
         List<Post> posts = postService.findPostByUserId(userId);
         return new ResponseEntity<List<Post>>(posts, HttpStatus.OK);
@@ -54,7 +54,7 @@ public class PostController {
         return new ResponseEntity(post, HttpStatus.ACCEPTED);
     }
 
-    @PutMapping("/posts/save/{postId}/user/{userId}")
+    @GetMapping("/post/{postId}/user/{userId}")
     public ResponseEntity<Post> savePostHandler(@PathVariable Integer postId, @PathVariable Integer userId)
             throws Exception {
         Post post = postService.savedPost(postId, userId);

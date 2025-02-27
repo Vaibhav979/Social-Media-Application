@@ -7,7 +7,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -22,11 +21,15 @@ public class User {
     private String email;
     private String password;
     private String gender;
-    private List<Integer> followers = new ArrayList<>();
-    private List<Integer> followings = new ArrayList<>();
+    public List<Post> getSavedPost() {
+        return savedPost;
+    }
 
-    @ManyToMany
-    private List<Post> savedPost = new ArrayList<>();
+    public void setSavedPost(List<Post> savedPost) {
+        this.savedPost = savedPost;
+    }
+
+     
 
     public User() {
 
@@ -106,13 +109,5 @@ public class User {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public List<Post> getSavedPost() {
-        return savedPost;
-    }
-
-    public void setSavedPost(List<Post> savedPost) {
-        this.savedPost = savedPost;
     }
 }

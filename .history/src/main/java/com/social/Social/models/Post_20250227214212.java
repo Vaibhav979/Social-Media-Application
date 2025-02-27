@@ -8,8 +8,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 
 @Entity
 public class Post {
@@ -23,13 +21,9 @@ public class Post {
 
     private String video; // url
 
-    @ManyToOne
     private User user;
 
-    @OneToMany
     private List<User> liked = new ArrayList<>();
-
-    private LocalDateTime createdAt;
 
     public Post() {
     }
@@ -46,7 +40,7 @@ public class Post {
         this.video = video;
         this.user = user;
         this.liked = liked;
-        this.createdAt = createdAt;
+        this.creadtedAt = createdAt;
     }
 
     public void setLiked(List<User> liked) {
@@ -94,10 +88,12 @@ public class Post {
     }
 
     public LocalDateTime getCreadtedAt() {
-        return createdAt;
+        return creadtedAt;
     }
 
-    public void setCreadtedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
+    public void setCreadtedAt(LocalDateTime creadtedAt) {
+        this.creadtedAt = creadtedAt;
     }
+
+    private LocalDateTime creadtedAt;
 }

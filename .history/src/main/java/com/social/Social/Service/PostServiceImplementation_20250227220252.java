@@ -1,6 +1,5 @@
 package com.social.Social.Service;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,7 +29,7 @@ public class PostServiceImplementation implements PostService {
         Post newPost = new Post();
         newPost.setCaption(post.getCaption());
         newPost.setImage(post.getImage());
-        newPost.setCreadtedAt(LocalDateTime.now());
+        newPost.setCreadtedAt(LocalDate);
         newPost.setVideo(post.getVideo());
         newPost.setUser(user);
         return postRepository.save(newPost);
