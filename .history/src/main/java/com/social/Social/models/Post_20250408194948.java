@@ -22,6 +22,7 @@ public class Post {
     private String image; // urls
 
     private String video; // url
+
     
     @ManyToOne // it works opposite
     private User user;

@@ -75,7 +75,7 @@ public class PostServiceImplementation implements PostService {
         } else {
             user.getSavedPost().add(post);
         }
-        userRepository.save(user);
+        userRepos
         return post;
     }
 
