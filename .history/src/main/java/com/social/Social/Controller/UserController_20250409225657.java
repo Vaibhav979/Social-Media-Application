@@ -44,13 +44,13 @@ public class UserController {
     }
 
     // update
-    @PutMapping("/api/users/{userId}")
+    @PutMapping("/users/{userId}")
     public User updateUser(@RequestBody User user, @PathVariable Integer userId) throws Exception {
         User updateUser = userService.updateUser(user, userId);
         return updateUser;
     }
 
-    @PutMapping("/api/users/follow/{userId1}/{userId2}")
+    @PutMapping("/users/follow/{userId1}/{userId2}")
     public User followUserHandler(@PathVariable Integer userId1, @PathVariable Integer userId2) throws Exception {
         User user = userService.followUser(userId1, userId2);
         return user;
